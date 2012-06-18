@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.shoppon.demos"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+
+    <uses-sdk android:minSdkVersion="7" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".animation.AnimationSrcActivity" />
+        <activity android:name=".animation.AnimationDestActivity" />
+        <activity android:name=".ui.Pull" />
+        <activity android:name=".ui.PopupMenu" />
+        <activity android:name=".ui.ImageListActivity" />
+        <activity android:name=".ui.AppSizeActivity" />
+        <activity android:name=".ui.MoveViewGroupActivity" />
+        <activity android:name=".ui.CheckBoxInListView" />
+        <activity android:name=".ui.ExpandableListActivity" />
+        <activity
+            android:name=".ui.TaskManager"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+        </activity>
+    </application>
+
+</manifest>
