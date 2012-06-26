@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import cn.shoppon.demos.animation.AnimationSrcActivity;
-import cn.shoppon.demos.breakdowad.BreakDownloadActivity;
+import cn.shoppon.demos.breakdownload.BreakDownloadActivity;
 import cn.shoppon.demos.ui.AppSizeActivity;
 import cn.shoppon.demos.ui.CheckBoxInListView;
+import cn.shoppon.demos.ui.CustomViewActivity;
 import cn.shoppon.demos.ui.ExpandableListActivity;
 import cn.shoppon.demos.ui.ImageListActivity;
 import cn.shoppon.demos.ui.MoveViewGroupActivity;
@@ -44,6 +45,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		findViewById(R.id.check_list).setOnClickListener(this);
 		findViewById(R.id.expandable_list).setOnClickListener(this);
 		findViewById(R.id.animation_activity).setOnClickListener(this);
+		findViewById(R.id.custom_view).setOnClickListener(this);
 	}
 
 	@Override
@@ -81,6 +83,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.break_download:
 			c = BreakDownloadActivity.class;
+			break;
+		case R.id.custom_view:
+			c = CustomViewActivity.class;
 			break;
 		}
 		if (c != null) {

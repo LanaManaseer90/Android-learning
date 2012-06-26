@@ -12,20 +12,32 @@ import android.widget.TextView;
 import cn.shoppon.demos.R;
 import cn.shoppon.demos.bean.AppInfo;
 
+/**
+ *
+ * <p>
+ * Description:
+ * </p>
+ * <p>
+ * Copyright: Copyright (c) 2012. All rights reserved.
+ * </p>
+ *
+ * @author <a href="www.shoppon.cn">Shoppon</a>
+ * @version
+ * @see
+ */
 public class BrowseApplicationInfoAdapter extends BaseAdapter {
 
-	private List<AppInfo> mlistAppInfo = null;
+	private List<AppInfo> mlistAppInfo;
 
-	LayoutInflater infater = null;
+	LayoutInflater mInflater;
 
 	public BrowseApplicationInfoAdapter(Context context, List<AppInfo> apps) {
-		infater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mlistAppInfo = apps;
 	}
 
 	@Override
 	public int getCount() {
-		System.out.println("size" + mlistAppInfo.size());
 		return mlistAppInfo.size();
 	}
 
@@ -41,11 +53,10 @@ public class BrowseApplicationInfoAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertview, ViewGroup arg2) {
-		System.out.println("getView at " + position);
 		View view = null;
 		ViewHolder holder = null;
 		if (convertview == null || convertview.getTag() == null) {
-			view = infater.inflate(R.layout.browse_app_item, null);
+			view = mInflater.inflate(R.layout.browse_app_item, null);
 			holder = new ViewHolder(view);
 			view.setTag(holder);
 		} else {

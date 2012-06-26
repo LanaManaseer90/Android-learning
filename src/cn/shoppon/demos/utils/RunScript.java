@@ -38,7 +38,6 @@ public class RunScript {
                         try {
                             bufferedReader.close();
                         } catch (IOException e) {
-                            // TODO: �쳣����
                         }
                     }
                 }
@@ -60,7 +59,6 @@ public class RunScript {
                         try {
                             bufferedReader.close();
                         } catch (IOException e) {
-                            // TODO���쳣����
                         }
                     }
                 }
