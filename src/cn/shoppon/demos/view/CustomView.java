@@ -42,22 +42,16 @@ public class CustomView extends View {
 	private Paint mTextBackPaint;
 	private TextPaint mTextPaint;
 
-	/** VIEWµÄ¿í¶È **/
 	private float mWidths;
-	/** VIEWµÄ¸ß¶È **/
 	private float mHeights;
 
 	private int mTextSize;
-	private int mTextColor;
 
-	/** Ô²ËùÔÚµÄ¾ØÐÎ **/
 	private RectF mOval;
 
 	private float mStartAngle;
 
-	/** ±ÈÀýMap **/
 	private Map<Integer, Float> mRangeMap;
-	/** ÑÕÉ«Map **/
 	private Map<Integer, Integer> mColorMap;
 
 	public CustomView(Context context, AttributeSet attrs) {
@@ -122,7 +116,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃÄ¬ÈÏ»­±Ê
+	 * ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï»ï¿½ï¿½ï¿½
 	 */
 	private void initDefaultPaint() {
 		mBackPaint = new Paint();
@@ -140,10 +134,10 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃÔ²»¡µÄ±ÈÀý
+	 * ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
 	 * 
 	 * @param rangeMap
-	 *            ±ÈÀýMap
+	 *            ï¿½ï¿½ï¿½ï¿½Map
 	 */
 	public void setRange(Map<Integer, Float> rangeMap) {
 		this.mRangeMap = rangeMap;
@@ -151,7 +145,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃ±³¾°ÑÕÉ«
+	 * ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	 * 
 	 * @param color
 	 */
@@ -162,7 +156,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃÑÕÉ«
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	 * 
 	 * @param colorMap
 	 */
@@ -172,7 +166,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃ·¶Î§
+	 * ï¿½ï¿½ï¿½Ã·ï¿½Î§
 	 * 
 	 * @param type
 	 * @param range
@@ -182,7 +176,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃµ¥ÖÖ·ÖÀàÑÕÉ«
+	 * ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	 * 
 	 * @param type
 	 * @param color
@@ -192,7 +186,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ÉèÖÃÆðÊ¼Æ«ÒÆ½Ç¶È
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Æ«ï¿½Æ½Ç¶ï¿½
 	 * 
 	 * @param startAngle
 	 */
@@ -201,7 +195,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ³õÊ¼»¯Ô²»¡ËùÔÚµÄÔ²
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ô²
 	 * 
 	 * @param left
 	 * @param top
@@ -213,7 +207,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ³õÊ¼»¯»­±Ê
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private void initPaint(Map<Integer, Integer> colorMap) {
 		if (colorMap == null) {
@@ -242,46 +236,46 @@ public class CustomView extends View {
 		// getLocationOnScreen(location);
 
 		/**
-		 * µÚÒ»²½»­±³¾°¾ØÐÎ
+		 * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
 		initRectF(0, 0, mWidths, mHeights);
 
 		/**
-		 * µÚ¶þ²½»­´óÔ²
+		 * ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²
 		 */
 		canvas.drawCircle(mWidths / 2, mHeights / 2, mWidths / 2, mBackPaint);
 
 		/**
-		 * µÚÈý²½»­Ô²»¡
+		 * ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
 		 */
 		initPaint(mColorMap);
 		drawRangeArcs(canvas, mOval, mRangeMap, mPaintMap);
 
 		/**
-		 * µÚËÄ²½»­Ð¡Ô²
+		 * ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Ð¡Ô²
 		 */
 		canvas.drawCircle(mWidths / 2, mHeights / 2, mWidths / 5, mTextBackPaint);
 
 		/**
-		 * µÚÎå²½»­×Ö
+		 * ï¿½ï¿½ï¿½å²½ï¿½ï¿½ï¿½ï¿½
 		 */
 		mTextPaint.setTextSize(mTextSize);
-		mTextPaint.measureText("µÚ°Ë");
+		mTextPaint.measureText("ï¿½Ú°ï¿½");
 	}
 
 	/**
-	 * ¸ù¾Ý±ÈÀýºÍÆ«ÒÆ±ÈÀý»­»¡ÐÎÇøÓò
+	 * ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½Æ«ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param canvas
-	 *            »­²¼
+	 *            ï¿½ï¿½ï¿½ï¿½
 	 * @param oval
-	 *            »¡ÐÎËùÔÚ¾ØÐÎÇøÓò
+	 *            ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param ranges
-	 *            Ã¿¸ö»¡ÐÎ±ÈÀý
+	 *            Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½
 	 * @param angles
-	 *            Æ«ÒÆ½Ç¶È
+	 *            Æ«ï¿½Æ½Ç¶ï¿½
 	 * @param paints
-	 *            Ã¿¸ö»¡ÐÎÇøÓòµÄ»­±Ê
+	 *            Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 	 */
 	private void drawRangeArcs(Canvas canvas, RectF oval, Map<Integer, Float> rangeMap, Map<Integer, Paint> paintMap) {
 		if (rangeMap.size() != paintMap.size()) {
@@ -297,7 +291,7 @@ public class CustomView extends View {
 	}
 
 	/**
-	 * ¸ù¾Ý±ÈÀý¼¯ºÏ¼ÆËãÆ«Àë½Ç¶È
+	 * ï¿½ï¿½Ý±ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½Ç¶ï¿½
 	 * 
 	 * @param ranges
 	 * @return
