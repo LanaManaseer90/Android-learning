@@ -56,24 +56,17 @@ public class CustomDrawable extends Drawable {
 	private Paint mTextBackPaint;
 	private Paint mTextPaint;
 
-	/** Ô²»¡µÄ¿í¶È **/
 	private int mWidths;
-	/** Ô²»¡µÄ¸ß¶È **/
 	private int mHeights;
 
 	private float mLeft;
 	private float mTop;
-	private float mRight;
-	private float mBottom;
 
-	/** Ô²ËùÔÚµÄ¾ØÐÎ **/
 	private RectF mOval;
 
 	private float mStartAngle;
 
-	/** ±ÈÀýMap **/
 	private Map<Integer, Float> mRangeMap;
-	/** ÑÕÉ«Map **/
 	private Map<Integer, Integer> mColorMap;
 
 	public CustomDrawable() {
@@ -101,7 +94,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ÉèÖÃÄ¬ÈÏ»­±Ê
+	 * ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï»ï¿½ï¿½ï¿½
 	 */
 	private void initDefaultPaint() {
 		mBackPaint = new Paint();
@@ -119,17 +112,17 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ÉèÖÃÔ²»¡µÄ±ÈÀý
+	 * ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
 	 * 
 	 * @param rangeMap
-	 *            ±ÈÀýMap
+	 *            ï¿½ï¿½ï¿½ï¿½Map
 	 */
 	public void setRange(Map<Integer, Float> rangeMap) {
 		this.mRangeMap = rangeMap;
 	}
 
 	/**
-	 * ÉèÖÃ±³¾°ÑÕÉ«
+	 * ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	 * 
 	 * @param color
 	 */
@@ -140,7 +133,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ÉèÖÃÑÕÉ«
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	 * 
 	 * @param colorMap
 	 */
@@ -149,7 +142,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ÉèÖÃ·¶Î§
+	 * ï¿½ï¿½ï¿½Ã·ï¿½Î§
 	 * 
 	 * @param type
 	 * @param range
@@ -159,7 +152,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ÉèÖÃµ¥ÖÖ·ÖÀàÑÕÉ«
+	 * ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	 * 
 	 * @param type
 	 * @param color
@@ -169,7 +162,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ÉèÖÃÆðÊ¼Æ«ÒÆ½Ç¶È
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼Æ«ï¿½Æ½Ç¶ï¿½
 	 * 
 	 * @param startAngle
 	 */
@@ -178,7 +171,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ³õÊ¼»¯Ô²»¡ËùÔÚµÄÔ²
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ô²
 	 * 
 	 * @param left
 	 * @param top
@@ -190,7 +183,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ³õÊ¼»¯»­±Ê
+	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	private void initPaint() {
 		if (mColorMap == null) {
@@ -214,46 +207,46 @@ public class CustomDrawable extends Drawable {
 		Log.d(TAG, "draw");
 
 		/**
-		 * µÚÒ»²½»­±³¾°¾ØÐÎ
+		 * ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		 */
 		initRectF(mLeft, mTop, mLeft + mWidths, mTop + mHeights);
 
 		/**
-		 * µÚ¶þ²½»­´óÔ²
+		 * ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²
 		 */
 		canvas.drawCircle(mLeft + mWidths / 2, mTop + mHeights / 2, mHeights / 2, mBackPaint);
 
 		/**
-		 * µÚÈý²½»­Ô²»¡
+		 * ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
 		 */
 		initPaint();
 		drawRangeArcs(canvas, mOval, mRangeMap, mPaints);
 
 		/**
-		 * µÚËÄ²½»­Ð¡Ô²
+		 * ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Ð¡Ô²
 		 */
 		canvas.drawCircle(mWidths / 2, mHeights / 2, mWidths / 4, mTextBackPaint);
 
 		/**
-		 * µÚÎå²½»­×Ö
+		 * ï¿½ï¿½ï¿½å²½ï¿½ï¿½ï¿½ï¿½
 		 */
-		canvas.drawText("Ê£Óà", mWidths * 0.375f, mHeights * 0.375f, mTextPaint);
+		canvas.drawText("Ê£ï¿½ï¿½", mWidths * 0.375f, mHeights * 0.375f, mTextPaint);
 		canvas.drawText("30%", mWidths * 0.375f, mHeights * 0.625f, mTextPaint);
 	}
 
 	/**
-	 * ¸ù¾Ý±ÈÀýºÍÆ«ÒÆ±ÈÀý»­»¡ÐÎÇøÓò
+	 * ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½Æ«ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param canvas
-	 *            »­²¼
+	 *            ï¿½ï¿½ï¿½ï¿½
 	 * @param oval
-	 *            »¡ÐÎËùÔÚ¾ØÐÎÇøÓò
+	 *            ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param ranges
-	 *            Ã¿¸ö»¡ÐÎ±ÈÀý
+	 *            Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½
 	 * @param angles
-	 *            Æ«ÒÆ½Ç¶È
+	 *            Æ«ï¿½Æ½Ç¶ï¿½
 	 * @param paints
-	 *            Ã¿¸ö»¡ÐÎÇøÓòµÄ»­±Ê
+	 *            Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 	 */
 	private void drawRangeArcs(Canvas canvas, RectF oval, Map<Integer, Float> rangeMap, Paint[] paints) {
 		if (rangeMap.size() != paints.length) {
@@ -268,7 +261,7 @@ public class CustomDrawable extends Drawable {
 	}
 
 	/**
-	 * ¸ù¾Ý±ÈÀý¼¯ºÏ¼ÆËãÆ«Àë½Ç¶È
+	 * ï¿½ï¿½Ý±ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½Ç¶ï¿½
 	 * 
 	 * @param ranges
 	 * @return
