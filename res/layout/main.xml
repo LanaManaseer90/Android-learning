@@ -73,6 +73,12 @@
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:text="自定义View" />
+
+        <Button
+            android:id="@+id/contact"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="联系人" />
     </LinearLayout>
 
 </ScrollView>
