@@ -79,6 +79,12 @@
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:text="联系人" />
+
+        <Button
+            android:id="@+id/image_browse"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="图片浏览" />
     </LinearLayout>
 
 </ScrollView>
