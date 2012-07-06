@@ -26,6 +26,8 @@ public class ImageBrowseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.image_browse);
+
+		ZoomImageView zoomImageView = (ZoomImageView) findViewById(R.id.zoom_image);
 	}
 
 }

@@ -33,7 +33,7 @@ public class ZoomImageView extends ImageView {
 
 	private Bitmap mBitmap;
 	private Paint mPaint;
-	
+	private ZoomState mZoomState;
 
 	private Rect mSrcRect;
 	private Rect mDestRect;
@@ -46,8 +46,6 @@ public class ZoomImageView extends ImageView {
 	private float mEndY;
 
 	private float mOriginDistance;
-
-	private float mZoom;
 
 	public ZoomImageView(Context context) {
 		super(context);
@@ -65,6 +63,7 @@ public class ZoomImageView extends ImageView {
 
 		mSrcRect = new Rect();
 		mDestRect = new Rect();
+		mZoomState = new ZoomState();
 
 	}
 
@@ -81,10 +80,14 @@ public class ZoomImageView extends ImageView {
 		int viewWidth = getWidth();
 		int viewHeight = getHeight();
 
-		mSrcRect.left = (int) (bitmapWidth * (mEndX - mStartX) / viewWidth);
-		mSrcRect.right = mSrcRect.left + viewWidth;
-		mSrcRect.top = (int) (bitmapHeight + (mStartY - mEndY) / viewHeight);
-		mSrcRect.bottom = mSrcRect.top + viewHeight;
+		Log.d(TAG, "ZoomState zoom--->" + mZoomState.getZoom());
+		Log.d(TAG, "ZoomState panX--->" + mZoomState.getPanx());
+		Log.d(TAG, "ZoomState panY--->" + mZoomState.getPany());
+
+		mSrcRect.left = (int) (bitmapWidth * (mZoomState.getZoom() - 1) / (2 * mZoomState.getZoom()) + bitmapWidth * mZoomState.getPanx());
+		mSrcRect.right = (int) (mSrcRect.left + bitmapWidth / mZoomState.getZoom());
+		mSrcRect.top = (int) (bitmapHeight * (mZoomState.getZoom() - 1) / (2 * mZoomState.getZoom()) + bitmapHeight * mZoomState.getPany());
+		mSrcRect.bottom = (int) (mSrcRect.top + bitmapHeight / mZoomState.getZoom());
 
 		mDestRect.left = getLeft();
 		mDestRect.top = getTop();
@@ -97,21 +100,24 @@ public class ZoomImageView extends ImageView {
 	public boolean onTouchEvent(MotionEvent event) {
 		int action = event.getAction();
 		int count = event.getPointerCount();
+
+		float x = event.getX();
+		float y = event.getY();
+
 		if (count == 1) {
 			switch (action) {
 			case MotionEvent.ACTION_MOVE:
-				Log.d(TAG, "action move");
-				mEndX = event.getX();
-				mEndY = event.getY();
+				float panX = mZoomState.getZoom() * (mStartX - x) / getWidth();
+				float panY = mZoomState.getZoom() * (mStartY - y) / getHeight();
+				mZoomState.setPanx(panX);
+				mZoomState.setPany(panY);
 				invalidate();
 				break;
 			case MotionEvent.ACTION_DOWN:
-				Log.d(TAG, "action down");
-				mStartX = event.getX();
-				mStartY = event.getY();
+				mStartX = x;
+				mStartY = y;
 				break;
 			case MotionEvent.ACTION_UP:
-				Log.d(TAG, "action up");
 				break;
 			}
 		} else if (count == 2) {
@@ -124,7 +130,7 @@ public class ZoomImageView extends ImageView {
 			float distance = measureDistance(x0, y0, x1, y1);
 			switch (action) {
 			case MotionEvent.ACTION_MOVE:
-				mZoom = distance / mOriginDistance;
+				mZoomState.setZoom(distance / mOriginDistance);
 				invalidate();
 				break;
 			case MotionEvent.ACTION_POINTER_1_DOWN:
@@ -132,11 +138,14 @@ public class ZoomImageView extends ImageView {
 				mOriginDistance = distance;
 				break;
 			case MotionEvent.ACTION_POINTER_1_UP:
+				mStartX = x1;
+				mStartY = y1;
 				break;
 			case MotionEvent.ACTION_POINTER_2_UP:
+				mStartX = x0;
+				mStartY = y0;
 				break;
 			}
-
 		}
 		return true;
 	}
@@ -145,5 +154,13 @@ public class ZoomImageView extends ImageView {
 		double dX2 = Math.pow(x0 - x1, 2);
 		double dY2 = Math.pow(y1 - y1, 2);
 		return (float) Math.pow(dX2 + dY2, 0.5);
+	}
+
+	public ZoomState getZoomState() {
+		return mZoomState;
+	}
+
+	public void setZoomState(ZoomState zoomState) {
+		mZoomState = zoomState;
 	}
 }
