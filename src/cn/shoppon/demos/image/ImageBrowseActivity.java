@@ -5,6 +5,8 @@ package cn.shoppon.demos.image;
 
 import cn.shoppon.demos.R;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 /**
@@ -28,6 +30,8 @@ public class ImageBrowseActivity extends Activity {
 		setContentView(R.layout.image_browse);
 
 		ZoomImageView zoomImageView = (ZoomImageView) findViewById(R.id.zoom_image);
+		Bitmap bitmap = BitmapFactory.decodeFile("/mnt/sdcard/8684/a0.jpg");
+		zoomImageView.setBitmap(bitmap);
 	}
 
 }

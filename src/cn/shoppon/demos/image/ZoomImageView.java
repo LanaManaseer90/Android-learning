@@ -89,6 +89,27 @@ public class ZoomImageView extends ImageView {
 		mSrcRect.top = (int) (bitmapHeight * (mZoomState.getZoom() - 1) / (2 * mZoomState.getZoom()) + bitmapHeight * mZoomState.getPany());
 		mSrcRect.bottom = (int) (mSrcRect.top + bitmapHeight / mZoomState.getZoom());
 
+		if (mSrcRect.left < 0) {
+			mSrcRect.left = 0;
+		}
+
+		if (mSrcRect.right > bitmapWidth) {
+			mSrcRect.right = bitmapWidth;
+		}
+
+		if (mSrcRect.top < 0) {
+			mSrcRect.top = 0;
+		}
+
+		if (mSrcRect.bottom > bitmapHeight) {
+			mSrcRect.bottom = bitmapHeight;
+		}
+
+		Log.d(TAG, "mSrcRect left--->" + mSrcRect.left);
+		Log.d(TAG, "mSrcRect right--->" + mSrcRect.right);
+		Log.d(TAG, "mSrcRect top--->" + mSrcRect.top);
+		Log.d(TAG, "mSrcRect bottom--->" + mSrcRect.bottom);
+
 		mDestRect.left = getLeft();
 		mDestRect.top = getTop();
 		mDestRect.right = getRight();
@@ -107,8 +128,11 @@ public class ZoomImageView extends ImageView {
 		if (count == 1) {
 			switch (action) {
 			case MotionEvent.ACTION_MOVE:
-				float panX = mZoomState.getZoom() * (mStartX - x) / getWidth();
-				float panY = mZoomState.getZoom() * (mStartY - y) / getHeight();
+				float panX = mZoomState.getPanx() + mZoomState.getZoom() * (mStartX - x) / (10 * getWidth());
+				float panY = mZoomState.getPany() + mZoomState.getZoom() * (mStartY - y) / (10 * getHeight());
+				if (Math.abs(panY) > 0.5 || Math.abs(panX) > 0.5) {
+					break;
+				}
 				mZoomState.setPanx(panX);
 				mZoomState.setPany(panY);
 				invalidate();
