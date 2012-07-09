@@ -29,9 +29,9 @@ public class ImageBrowseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.image_browse);
 
-		ZoomImageView zoomImageView = (ZoomImageView) findViewById(R.id.zoom_image);
-		Bitmap bitmap = BitmapFactory.decodeFile("/mnt/sdcard/8684/a0.jpg");
-		zoomImageView.setBitmap(bitmap);
+		ImageGallary imageGallary = (ImageGallary) findViewById(R.id.image_gallary);
+		ImageAdapter adapter = new ImageAdapter(this);
+		imageGallary.setAdapter(adapter);
 	}
 
 }

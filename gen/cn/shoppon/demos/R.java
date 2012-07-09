@@ -54,6 +54,7 @@ public final class R {
         public static final int expandablelist=0x7f07001a;
         public static final int image_browse=0x7f07002c;
         public static final int image_download=0x7f070023;
+        public static final int image_gallary=0x7f07001b;
         public static final int imgApp=0x7f070001;
         public static final int layout_pause=0x7f07002e;
         public static final int layout_start=0x7f07002d;
@@ -82,7 +83,6 @@ public final class R {
         public static final int tvdatasize=0x7f070017;
         public static final int tvtotalsize=0x7f070019;
         public static final int unselect_all=0x7f07000b;
-        public static final int zoom_image=0x7f07001b;
     }
     public static final class layout {
         public static final int animation_src=0x7f030000;

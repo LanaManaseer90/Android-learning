@@ -4,8 +4,8 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <cn.shoppon.demos.image.ZoomImageView
-        android:id="@+id/zoom_image"
+    <cn.shoppon.demos.image.ImageGallary
+        android:id="@+id/image_gallary"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
