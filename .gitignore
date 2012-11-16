@@ -1,0 +1,7 @@
+.classpath
+*.class
+bin/
+gen/
+.settings
+.project
+
