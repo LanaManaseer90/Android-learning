@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: D:\\Dropbox\\workspace-win7\\Demos\\src\\android\\content\\pm\\IPackageStatsObserver.aidl
+ * Original file: D:\\Dropbox\\Project\\demo\\src\\android\\content\\pm\\IPackageStatsObserver.aidl
  */
 package android.content.pm;
 /**
